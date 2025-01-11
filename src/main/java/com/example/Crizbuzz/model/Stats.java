@@ -21,7 +21,6 @@ public class Stats {
 
     int wickets;
 
-
     double battingAverage;
 
     double bowlingAverage;

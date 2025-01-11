@@ -24,13 +24,15 @@ public class Player {
 
     int age;
 
+    String email;
+
     @Enumerated(EnumType.STRING)
     Speciality speciality;
 
     @Enumerated(EnumType.STRING)
     Gender gender;
 
-    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     Stats stats;
 

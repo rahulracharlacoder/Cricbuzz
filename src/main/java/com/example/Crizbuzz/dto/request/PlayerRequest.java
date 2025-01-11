@@ -2,8 +2,6 @@ package com.example.Crizbuzz.dto.request;
 
 import com.example.Crizbuzz.model.Enum.Gender;
 import com.example.Crizbuzz.model.Enum.Speciality;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,5 +21,7 @@ public class PlayerRequest {
     Speciality speciality;
 
     Gender gender;
+
+    String email;
 
 }

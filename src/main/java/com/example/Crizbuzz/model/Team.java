@@ -1,14 +1,9 @@
 package com.example.Crizbuzz.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import java.util.List;
 
 @Data
@@ -16,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
+@Builder
 public class Team {
 
     @Id
@@ -32,11 +28,11 @@ public class Team {
 
     int matchesPlayed;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     List<Player> players;
 
-    @ManyToMany(mappedBy = "teams")
+    @ManyToMany(mappedBy = "teams", cascade = CascadeType.ALL)
     @JsonManagedReference
     List<CricketMatch> cricketMatches;
 
